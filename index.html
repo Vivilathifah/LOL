@@ -1,0 +1,286 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Ucapan Ulang Tahun</title>
+  <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Poppins:wght@400;600&display=swap" rel="stylesheet" />
+  <style>
+    * {
+      box-sizing: border-box;
+    }
+    body {
+      font-family: 'Poppins', sans-serif;
+      background: linear-gradient(135deg, #fff0e6, #ffe4e1);
+      margin: 0;
+      padding: 20px;
+      color: #4d3c2d;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+    }
+    .input-section {
+      text-align: center;
+    }
+    .input-section h2 {
+      font-family: 'Great Vibes', cursive;
+      font-size: 2.5em;
+      margin-bottom: 20px;
+    }
+    .input-section input {
+      padding: 12px 20px;
+      font-size: 1rem;
+      border-radius: 25px;
+      border: 2px solid #f08080;
+      margin-bottom: 20px;
+      width: 80%;
+      max-width: 300px;
+    }
+    .input-section button {
+      background: #f08080;
+      color: white;
+      padding: 12px 25px;
+      border-radius: 25px;
+      border: none;
+      cursor: pointer;
+      font-weight: 600;
+      font-size: 1rem;
+      transition: background-color 0.3s;
+    }
+    .input-section button:hover {
+      background-color: #e36b6b;
+    }
+    .main-content {
+      display: none;
+      flex-direction: column;
+      align-items: center;
+      text-align: center;
+    }
+    h1 {
+      font-family: 'Great Vibes', cursive;
+      font-size: 3em;
+      color: #8b4513;
+      margin-bottom: 10px;
+      animation: fadeIn 2s ease-out;
+    }
+    p.ucapan {
+      font-size: 1.1em;
+      max-width: 600px;
+      margin: 0 auto 30px;
+      animation: fadeIn 3s ease-out;
+      color: #5c3a00;
+      font-style: italic;
+      line-height: 1.5;
+      padding: 0 10px;
+      text-shadow: 1px 1px 2px rgba(255, 255, 255, 0.8);
+    }
+    .photo-stack {
+      position: relative;
+      width: 100%;
+      max-width: 400px;
+      height: auto;
+      aspect-ratio: 4 / 3;
+      margin: 0 auto 30px;
+      perspective: 1200px;
+      overflow: visible;
+    }
+    .photo {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      max-width: 100%;
+      max-height: 100%;
+      object-fit: contain;
+      border-radius: 12px;
+      border: 12px solid #d2b48c;
+      box-shadow: 0 8px 16px rgba(0, 0, 0, 0.3), inset 0 0 8px rgba(255, 255, 255, 0.4);
+      padding: 4px;
+      background-color: #fffaf0;
+      transition: opacity 1.2s, transform 1.2s;
+      opacity: 0;
+      transform: translate(-50%, -50%) scale(0.95) rotate(0deg);
+      z-index: 0;
+    }
+    .photo.active {
+      opacity: 1;
+      z-index: 100;
+      transform: translate(-50%, -50%) scale(1.1) rotate(3deg);
+    }
+    .photo.stacked {
+      opacity: 0.5;
+      transition: transform 1.2s ease, opacity 1.2s ease;
+    }
+    .buttons {
+      display: flex;
+      gap: 12px;
+      flex-wrap: wrap;
+      justify-content: center;
+      margin-bottom: 40px;
+    }
+    .buttons button {
+      background: #f08080;
+      color: white;
+      padding: 12px 18px;
+      border-radius: 25px;
+      border: none;
+      cursor: pointer;
+      font-weight: 600;
+      font-size: 1rem;
+      flex: 1 1 140px;
+      min-width: 120px;
+      transition: background-color 0.3s;
+    }
+    .buttons button:hover {
+      background-color: #e36b6b;
+    }
+    @media (min-width: 768px) {
+      h1 {
+        font-size: 4.5rem;
+      }
+      p.ucapan {
+        font-size: 1.4rem;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <div class="input-section" id="inputSection">
+    <h2>Masukkan Namamu</h2>
+    <input type="text" id="nama" placeholder="Nama kamu..." />
+    <br />
+    <button onclick="lanjutkan()">Lanjutkan</button>
+  </div>
+
+  <div class="main-content" id="mainContent">
+    <h1>Selamat Ulang Tahun 🎉</h1>
+    <p class="ucapan" id="pesanUcapan"></p>
+
+    <div class="photo-stack" id="photoStack">
+      <img src="image 1.JPG" class="photo" alt="Foto 1" />
+      <img src="image 2.jpg" class="photo" alt="Foto 2" />
+      <img src="image 3.jpg" class="photo" alt="Foto 3" />
+      <img src="image 4.jpg" class="photo" alt="Foto 4" />
+      <img src="image 5.jpg" class="photo" alt="Foto 5" />
+      <img src="image 6.JPG" class="photo" alt="Foto 6" />
+      <img src="image 7.jpg" class="photo" alt="Foto 7" />
+      <img src="image 8.JPG" class="photo" alt="Foto 8" />
+      <img src="image 9.jpg" class="photo" alt="Foto 9" />
+      <img src="image 10.jpg" class="photo" alt="Foto 10" />
+      <img src="image 11.jpg" class="photo" alt="Foto 11" />
+      <img src="image 12.jpg" class="photo" alt="Foto 12" />
+      <img src="image 13.jpg" class="photo" alt="Foto 13" />
+    </div>
+
+    <div class="buttons">
+      <button id="music-btn">Pause Musik ⏸️</button>
+      <button onclick="sharePage()">Bagikan 🎁</button>
+    </div>
+  </div>
+
+  <audio id="bg-music" preload="auto" loop>
+    <source src="lagu.mp3" type="audio/mpeg" />
+  </audio>
+
+  <script>
+    const photos = document.querySelectorAll('.photo');
+    let currentIndex = 0;
+    let slideshowInterval;
+    let isPlaying = true;
+
+    function showPhoto(index) {
+      photos.forEach((photo, i) => {
+        photo.classList.remove('active', 'stacked');
+        photo.style.zIndex = i;
+        photo.style.opacity = 0;
+        photo.style.transform = 'translate(-50%, -50%) scale(0.95) rotate(0deg)';
+      });
+
+      for (let i = 0; i < index; i++) {
+        const prev = photos[i];
+        prev.classList.add('stacked');
+        prev.style.opacity = 0.4;
+
+        let randX = Math.floor(Math.random() * 40 - 20);
+        let randY = Math.floor(Math.random() * 40 - 20);
+        let randRotate = Math.floor(Math.random() * 21 - 10);
+
+        prev.style.transform = `translate(calc(-50% + ${randX}px), calc(-50% + ${randY}px)) rotate(${randRotate}deg) scale(0.9)`;
+        prev.style.zIndex = i;
+      }
+
+      const current = photos[index];
+      current.classList.add('active');
+      current.style.opacity = 1;
+      current.style.zIndex = 100;
+    }
+
+    function nextPhoto() {
+      currentIndex = (currentIndex + 1) % photos.length;
+      showPhoto(currentIndex);
+    }
+
+    function startSlideshow() {
+      slideshowInterval = setInterval(nextPhoto, 3000);
+    }
+
+    function stopSlideshow() {
+      clearInterval(slideshowInterval);
+    }
+
+    const music = document.getElementById('bg-music');
+    const musicBtn = document.getElementById('music-btn');
+    musicBtn.addEventListener('click', () => {
+      if (isPlaying) {
+        music.pause();
+        musicBtn.textContent = 'Mainkan Musik 🎵';
+      } else {
+        music.play();
+        musicBtn.textContent = 'Pause Musik ⏸️';
+      }
+      isPlaying = !isPlaying;
+    });
+
+    function sharePage() {
+      if (navigator.share) {
+        navigator.share({
+          title: 'Ucapan Selamat Ulang Tahun',
+          text: 'Lihat ucapan spesial ini dan foto kenangan!',
+          url: window.location.href
+        }).then(() => alert('Terima kasih telah membagikan!'))
+        .catch(console.error);
+      } else {
+        alert('Browser kamu tidak mendukung fitur share otomatis. Salin link saja ya!');
+      }
+    }
+
+    function lanjutkan() {
+      const nama = document.getElementById('nama').value.trim();
+      if (nama === "") {
+        alert("Tolong masukkan namamu dulu ya!");
+        return;
+      }
+
+      document.getElementById('inputSection').style.display = 'none';
+      document.getElementById('mainContent').style.display = 'flex';
+      document.getElementById('pesanUcapan').innerHTML = `
+        Hai <b>${nama}</b>,<br/>
+        Semoga setiap langkahmu selalu penuh kebahagiaan,<br />
+        setiap harimu diliputi keberkahan,<br />
+        dan impian-impianmu segera terwujud.<br />
+        Teruslah bersinar seperti bintang di langit malam.<br />
+        Selamat ulang tahun, semoga tahun ini menjadi yang terbaik!
+      `;
+
+      showPhoto(currentIndex);
+      startSlideshow();
+      music.play().catch(() => {
+        isPlaying = false;
+        musicBtn.textContent = 'Mainkan Musik 🎵';
+      });
+    }
+  </script>
+</body>
+</html>
